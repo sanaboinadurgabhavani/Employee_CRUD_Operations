@@ -1,0 +1,5 @@
+package org.employee.employee_CRUD.dto;
+
+public class Employee {
+
+}

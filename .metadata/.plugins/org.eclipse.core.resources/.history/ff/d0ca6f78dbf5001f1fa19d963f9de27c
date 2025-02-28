@@ -1,0 +1,33 @@
+package org.employee.employee_CRUD.Dao;
+
+import org.employee.employee_CRUD.Repository.EmployeeRepository;
+import org.employee.employee_CRUD.dto.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeDao {
+	
+	@Autowired
+	private EmployeeRepository repo;
+	
+//	<----------------Save Data--------------->
+	public void saveEmployee(Employee emp) {
+		repo.save(emp);
+	}
+	
+	public void saveEmployeeAll(Iterable<Employee> emps) {
+		repo.saveAll(emps);
+	}
+//	<----------------Read Data---------------->
+	 public void findById(int id) {
+		 repo.findById(id);
+	 }
+	  public void findAll() {
+		  repo.findAll();
+	  }
+	  public void count() {
+		  repo.count();
+	  }
+	  
+}

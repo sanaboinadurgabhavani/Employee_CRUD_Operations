@@ -1,0 +1,29 @@
+package org.employee.employee_CRUD.Controller;
+
+import java.util.List;
+
+import org.employee.employee_CRUD.Dao.EmployeeDao;
+import org.employee.employee_CRUD.dto.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@Controller
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeDao empDao;
+	
+	@PostMapping("/save")
+    public String saveEmployee(@RequestBody Employee employee) {
+        empDao.saveEmployee(employee);
+        return "Employee saved successfully!";
+    }
+	
+		@PostMapping("/saveAll")
+	    public String saveAllEmployees(@RequestBody List<Employee> employees) {
+	        empDao.saveEmployeeAll(employees);
+	        return "All employees saved successfully!";
+	    }
+}
